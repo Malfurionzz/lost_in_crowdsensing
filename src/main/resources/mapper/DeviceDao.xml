@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTP Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seu.lost_in_crowdsensing.dao.DeviceDao">
+    <select id="queryDevice"  resultType="com.seu.lost_in_crowdsensing.entity.Device">
+        SELECT id,device_name,bt_id,latitude,longitude,is_lost,usr_name
+        FROM device
+        WHERE usr_name=#{usrName}
+        ORDER BY id
+        ASC
+    </select>
+    <select id="queryDeviceByName" resultType="com.seu.lost_in_crowdsensing.entity.Device">
+        SELECT id,device_name,bt_id,latitude,longitude,is_lost,usr_name
+        FROM device
+        WHERE device_name=#{device_Name}
+    </select>
+    <select id="queryDeviceByBlueToothID" resultType="com.seu.lost_in_crowdsensing.entity.Device">
+        SELECT id,device_name,bt_id,latitude,longitude,is_lost,usr_name
+        FROM device
+        WHERE bt_id=#{BlueToothID}
+    </select>
+    <insert id="insertDevice" useGeneratedKeys="true" keyProperty="deviceID"
+            keyColumn="id" parameterType="com.seu.lost_in_crowdsensing.entity.Device">
+        INSERT INTO
+        device(device_name,bt_id,
+        latitude,longitude,
+        is_lost,usr_name)
+        VALUES
+        (#{deviceName},#{blueToothID},
+         #{latitude},#{longitude},
+         #{isLost},#{usrName})
+    </insert>
+    <update id="updateDevice" parameterType="com.seu.lost_in_crowdsensing.entity.Device">
+        UPDATE device
+        <set>
+            <if test="deviceName!=null">device_name=#{deviceName}</if>
+            <if test="latitude!=null">latitude=#{latitude}</if>
+            <if test="longitude!=null">longitude=#{longitude}</if>
+            <if test="isLost!=null">is_lost=#{isLost}</if>
+        </set>
+        WHERE bt_id=#{blueToothID}
+    </update>
+    <delete id="deleteDevice">
+    DELETE FROM
+    device
+    WHERE
+    device_name = #{deviceName}
+    </delete>
+</mapper>
