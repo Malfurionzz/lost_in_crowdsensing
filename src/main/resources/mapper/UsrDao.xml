@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTP Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seu.lost_in_crowdsensing.dao.UsrDao">
+    <select id="queryUsrByName"  resultType="com.seu.lost_in_crowdsensing.entity.Device">
+        SELECT usr_name,passwd
+        FROM usr
+        WHERE
+        usr_name=#{usrName}
+    </select>
+    <insert id="insertUsr" useGeneratedKeys="true" keyProperty="usrID"
+            keyColumn="id" parameterType="com.seu.lost_in_crowdsensing.entity.Usr">
+        INSERT INTO
+            device(usr_name,passwd)
+        VALUES
+        (#{usrName},#{passwd})
+    </insert>
+    <update id="updateUsr" parameterType="com.seu.lost_in_crowdsensing.entity.Usr">
+        UPDATE usr
+        <set>
+            <if test="passwd!=null">passwd=#{passwd}</if>
+        </set>
+        WHERE
+        usr_name=#{usrName}
+    </update>
+    <delete id="deleteUsr">
+        DELETE FROM
+        usr
+        WHERE
+        usr_name=#{usrName}
+    </delete>
+</mapper>
