@@ -5,6 +5,14 @@ public class Usr {
     private String usrName;
     private String passwd;
 
+    public Usr() {}
+
+    public Usr(String usrName, String passwd) {
+        this.usrName = usrName;
+        this.passwd = passwd;
+    }
+
+
     public String getUsrName() {
         return usrName;
     }
