@@ -8,21 +8,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-public class UsrDaoTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest
 
+public class UsrDaoTest {
+    @Autowired
+    private UsrDao usrDao;
     @Test
     public void queryUsrByName() {
+        Usr usr=usrDao.queryUsrByName("zsy");
+        Assert.assertEquals("1",usr.getPasswd());
     }
 
+    @Ignore
     @Test
     public void insertUsr() {
+        Usr usr=new Usr("Nearl","123");
+        usrDao.insertUsr(usr);
     }
 
     @Test
     public void updateUsr() {
+        Usr usr=new Usr("Nearl","blacksheepwall");
+        usrDao.updateUsr(usr);
     }
 
+    @Ignore
     @Test
     public void deleteUsr() {
+        //ok 不写了
     }
 }

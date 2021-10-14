@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTP Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.seu.lost_in_crowdsensing.dao.UsrDao">
-    <select id="queryUsrByName"  resultType="com.seu.lost_in_crowdsensing.entity.Device">
+    <select id="queryUsrByName"  resultType="com.seu.lost_in_crowdsensing.entity.Usr">
         SELECT usr_name,passwd
         FROM usr
         WHERE
@@ -12,7 +12,7 @@
     <insert id="insertUsr" useGeneratedKeys="true" keyProperty="usrID"
             keyColumn="id" parameterType="com.seu.lost_in_crowdsensing.entity.Usr">
         INSERT INTO
-            device(usr_name,passwd)
+            usr(usr_name,passwd)
         VALUES
         (#{usrName},#{passwd})
     </insert>
