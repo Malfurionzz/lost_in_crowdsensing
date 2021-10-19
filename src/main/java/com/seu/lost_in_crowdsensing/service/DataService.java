@@ -14,11 +14,15 @@ public interface DataService {
 
     Boolean addDevice(Device device);
 
+//    Boolean delDevice(Device device);
+
     Boolean upDateDevicePosition(Device device);
 
     Boolean upDateDeviceState(Device device);
 
     Boolean upDateDeviceInfo(Device device);
 
-    Boolean addUsr(Usr usr);
+    Boolean usrSignUp(Usr usr);
+
+    Boolean usrSignIn(Usr usr);
 }
