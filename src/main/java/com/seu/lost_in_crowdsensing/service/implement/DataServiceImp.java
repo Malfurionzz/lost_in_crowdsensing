@@ -6,10 +6,12 @@ import com.seu.lost_in_crowdsensing.entity.Device;
 import com.seu.lost_in_crowdsensing.entity.Usr;
 import com.seu.lost_in_crowdsensing.service.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class DataServiceImp implements DataService {
     @Autowired
     private DeviceDao deviceDao;
@@ -118,15 +120,16 @@ public class DataServiceImp implements DataService {
                     throw new RuntimeException("No such Device!");
                 }
             }catch (Exception e){
-                throw new RuntimeException("update device failed!");
+                throw new RuntimeException("update device failed!"+e.getMessage());
             }
         }else {
             throw new RuntimeException("Device name cannot be null!");
         }
     }
 
+    @Transactional
     @Override
-    public Boolean addUsr(Usr usr) {
+    public Boolean usrSignUp(Usr usr) {
         if (usr.getUsrName()!=null && !"".equals(usr.getUsrName())){
             try {
                 int effectedNum = usrDao.insertUsr(usr);
@@ -141,5 +144,24 @@ public class DataServiceImp implements DataService {
         }else {
             throw new RuntimeException("User Name cannot be null!");
         }
+    }
+
+    @Transactional
+    @Override
+    public Boolean usrSignIn(Usr usr) {
+        if (usr.getUsrName()!=null && !"".equals(usr.getUsrName())){
+            try {
+                Usr trustUsr=usrDao.queryUsrByName(usr.getUsrName());
+                if (trustUsr==null)
+                    throw new RuntimeException("No such user!");
+                if (usr.getPasswd().equals(trustUsr.getPasswd()))
+                    return true;
+                else
+                    throw new RuntimeException("Wrong password!");
+            }catch (Exception e){
+                throw new RuntimeException("Failed to login"+e.getMessage());
+            }
+        }
+        return  true;
     }
 }
