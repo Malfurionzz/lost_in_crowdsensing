@@ -47,6 +47,25 @@ public class DataServiceImp implements DataService {
 
     @Transactional
     @Override
+    public Boolean isLost(String blueToothID) {
+        if (blueToothID!=null){
+            try {
+                Device device=deviceDao.queryDeviceByBlueToothID(blueToothID);
+                if (device==null){
+                    throw new RuntimeException("No such device!");
+                }else {
+                    return device.getIsLost();
+                }
+            }catch (Exception e){
+                throw new RuntimeException("Device error:"+e.getMessage());
+            }
+        }else {
+            throw new RuntimeException("BlueTooth ID cannot be none!");
+        }
+    }
+
+    @Transactional
+    @Override
     public Boolean addDevice(Device device) {
         if (device.getDeviceName()!=null && !"".equals(device.getDeviceName())){
             try {

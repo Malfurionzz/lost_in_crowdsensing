@@ -10,7 +10,7 @@
         usr_name=#{usrName}
     </select>
     <insert id="insertUsr" useGeneratedKeys="true" keyProperty="usrID"
-            keyColumn="id" parameterType="com.seu.lost_in_crowdsensing.entity.Usr">
+            keyColumn="usr_id" parameterType="com.seu.lost_in_crowdsensing.entity.Usr">
         INSERT INTO
             usr(usr_name,passwd)
         VALUES

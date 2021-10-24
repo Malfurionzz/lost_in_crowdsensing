@@ -43,6 +43,13 @@ public class ServiceController {
         return modelMap;
     }
 
+    @RequestMapping(value = "/islost", method = RequestMethod.GET)
+    private Map<String, Object> deviceIsLost(String blueToothID){
+        Map<String,Object> modelMap = new HashMap<String,Object>();
+        modelMap.put("isLost",dataService.isLost(blueToothID));
+        return modelMap;
+    }
+
     @RequestMapping(value = "/adddevice", method = RequestMethod.POST)
     private Map<String, Object> addDevice(@RequestBody Device device){
         Map<String,Object> modelMap = new HashMap<String,Object>();

@@ -12,6 +12,8 @@ public interface DataService {
 
     Device getDeviceByToothID(String blueToothID);
 
+    Boolean isLost(String blueToothID);
+
     Boolean addDevice(Device device);
 
 //    Boolean delDevice(Device device);
