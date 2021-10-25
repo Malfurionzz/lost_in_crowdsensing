@@ -15,6 +15,7 @@ import java.util.List;
 public class DataServiceImp implements DataService {
     @Autowired
     private DeviceDao deviceDao;
+    @Autowired
     private UsrDao usrDao;
 
     @Override

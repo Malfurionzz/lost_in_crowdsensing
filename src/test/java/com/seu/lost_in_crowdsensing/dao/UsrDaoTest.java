@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class UsrDaoTest {
     @Autowired
     private UsrDao usrDao;
+    @Ignore
     @Test
     public void queryUsrByName() {
         try {
@@ -25,7 +26,7 @@ public class UsrDaoTest {
         //Assert.assertEquals("1",usr.getPasswd());
     }
 
-    @Ignore
+
     @Test
     public void insertUsr() {
         Usr usr=new Usr("Nearl","123");
