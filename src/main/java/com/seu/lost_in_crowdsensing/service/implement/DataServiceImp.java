@@ -87,7 +87,7 @@ public class DataServiceImp implements DataService {
     @Transactional
     @Override
     public Boolean upDateDevicePosition(Device device) {
-        if (device.getBlueToothID()!=null && "".equals(device.getBlueToothID())){
+        if (device.getBlueToothID()!=null && !"".equals(device.getBlueToothID())){
             try {
                 Device toMod=deviceDao.queryDeviceByBlueToothID(device.getBlueToothID());
                 if (toMod!=null){
@@ -109,7 +109,7 @@ public class DataServiceImp implements DataService {
     @Transactional
     @Override
     public Boolean upDateDeviceState(Device device) {
-        if (device.getDeviceName()!=null && "".equals(device.getDeviceName())){
+        if (device.getDeviceName()!=null && !"".equals(device.getDeviceName())){
             try {
                 Device toMod=deviceDao.queryDeviceByName(device.getDeviceName());
                 if (toMod!=null){

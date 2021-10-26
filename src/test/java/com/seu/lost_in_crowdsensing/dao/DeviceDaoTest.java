@@ -15,12 +15,14 @@ import java.util.List;
 public class DeviceDaoTest {
     @Autowired
     private DeviceDao deviceDao;
-    @Test
 
+    @Ignore
+    @Test
     public void queryDevice() {
         List<Device> deviceList= deviceDao.queryDevice("zsy");
         Assert.assertEquals("132",deviceList.get(0).getBlueToothID());
     }
+    @Ignore
     @Test
     public void queryDeviceByName() {
         Device device=deviceDao.queryDeviceByName("nokia");
@@ -46,12 +48,13 @@ public class DeviceDaoTest {
         int device=deviceDao.insertDevice(device1);
         Assert.assertEquals(1,device);
     }
-    @Ignore
+
     @Test
     public void updateDevice() {
         Device device=new Device();
-        device.setDeviceName("pear");
-        device.setBlueToothID("12");
+        device.setDeviceName("Nokia");
+        device.setBlueToothID("132");
+        device.setIsLost(Boolean.FALSE);
         int ok=deviceDao.updateDevice(device);
         Assert.assertEquals(1,ok);
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ff303eec-356b-4ef1-90b7-c7b10753677b" name="crowdsening" url="/">
+        <fileTransfer rootFolder="/home/malfurion" accessType="SFTP" host="211.65.192.37" port="2323" sshConfigId="844c7869-54c9-4416-8366-0a93fa2b5bd5" sshConfig="malfurion@211.65.192.37:2323 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
