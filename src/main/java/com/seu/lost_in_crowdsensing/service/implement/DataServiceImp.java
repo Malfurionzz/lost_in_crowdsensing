@@ -130,7 +130,7 @@ public class DataServiceImp implements DataService {
     @Transactional
     @Override
     public Boolean upDateDeviceInfo(Device device) {
-        if (device.getDeviceName()!=null && "".equals(device.getDeviceName())){
+        if (device.getDeviceName()!=null && !"".equals(device.getDeviceName())){
             try {
                 Device toMod=deviceDao.queryDeviceByName(device.getDeviceName());
                 if (toMod!=null){

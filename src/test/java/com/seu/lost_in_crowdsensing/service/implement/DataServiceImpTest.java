@@ -36,7 +36,6 @@ public class DataServiceImpTest {
     public void addDevice() {
         Usr usr=new Usr("mtx","???");
         Assert.assertEquals(true, serviceImp.usrSignUp(usr));
-
     }
 
 //    @Test
