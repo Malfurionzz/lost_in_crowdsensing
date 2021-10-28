@@ -109,9 +109,9 @@ public class DataServiceImp implements DataService {
     @Transactional
     @Override
     public Boolean upDateDeviceState(Device device) {
-        if (device.getDeviceName()!=null && !"".equals(device.getDeviceName())){
+        if (device.getBlueToothID()!=null && !"".equals(device.getBlueToothID())){
             try {
-                Device toMod=deviceDao.queryDeviceByName(device.getDeviceName());
+                Device toMod=deviceDao.queryDeviceByBlueToothID(device.getBlueToothID());
                 if (toMod!=null){
                     toMod.setIsLost(device.getIsLost());
                     deviceDao.updateDevice(toMod);
@@ -123,7 +123,7 @@ public class DataServiceImp implements DataService {
                 throw new RuntimeException("update state failed!");
             }
         }else {
-            throw new RuntimeException("Device name cannot be null!");
+            throw new RuntimeException("BlueToothID cannot be null!");
         }
     }
 
