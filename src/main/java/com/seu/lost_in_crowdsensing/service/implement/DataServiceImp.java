@@ -91,9 +91,7 @@ public class DataServiceImp implements DataService {
             try {
                 Device toMod=deviceDao.queryDeviceByBlueToothID(device.getBlueToothID());
                 if (toMod!=null){
-                    toMod.setLatitude(device.getLatitude());
-                    toMod.setLongitude(device.getLongitude());
-                    deviceDao.updateDevice(toMod);
+                    deviceDao.updateDevice(device);
                     return true;
                 }else {
                     throw new RuntimeException("No such Device!");
@@ -106,15 +104,13 @@ public class DataServiceImp implements DataService {
         }
     }
 
-    @Transactional
     @Override
     public Boolean upDateDeviceState(Device device) {
         if (device.getBlueToothID()!=null && !"".equals(device.getBlueToothID())){
             try {
                 Device toMod=deviceDao.queryDeviceByBlueToothID(device.getBlueToothID());
                 if (toMod!=null){
-                    toMod.setIsLost(device.getIsLost());
-                    deviceDao.updateDevice(toMod);
+                    deviceDao.updateDevice(device);
                     return true;
                 }else {
                     throw new RuntimeException("No such Device!");

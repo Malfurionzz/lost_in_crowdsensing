@@ -41,12 +41,11 @@ public class DataServiceImpTest {
     }
 
     @Test
-    public void upDateDeviceInfo(){
+    public void upDateDeviceState(){
         Device device=new Device();
-        device.setDeviceName("nokia");
         device.setBlueToothID("132");
         device.setIsLost(Boolean.FALSE);
-        Assert.assertEquals(Boolean.TRUE,serviceImp.upDateDeviceInfo(device));
+        Assert.assertEquals(Boolean.FALSE,serviceImp.upDateDeviceState(device));
     }
 //    @Test
 //    void upDateDevicePosition() {
