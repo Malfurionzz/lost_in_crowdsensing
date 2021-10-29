@@ -34,7 +34,7 @@ public class DataServiceImp implements DataService {
                 else
                     throw new RuntimeException("No such device!");
             }catch (Exception e){
-                throw new RuntimeException("Device error:"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("Device name cannot be null!");
@@ -51,7 +51,7 @@ public class DataServiceImp implements DataService {
                 else
                     throw new RuntimeException("No such device!");
             }catch (Exception e){
-                throw new RuntimeException("No such device!"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("BlueToothID cannot be null!");
@@ -70,7 +70,7 @@ public class DataServiceImp implements DataService {
                     return device.getIsLost();
                 }
             }catch (Exception e){
-                throw new RuntimeException("Device error:"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("BlueTooth ID cannot be null!");
@@ -89,7 +89,7 @@ public class DataServiceImp implements DataService {
                     throw new RuntimeException("Add device failed!");
                 }
             }catch (Exception e){
-                throw new RuntimeException("Device error:"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("Device Name cannot be null!");
@@ -109,7 +109,7 @@ public class DataServiceImp implements DataService {
                     throw new RuntimeException("No such Device!");
                 }
             }catch (Exception e){
-                throw new RuntimeException("Device error:"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("BlueTooth ID cannot be null!");
@@ -129,7 +129,7 @@ public class DataServiceImp implements DataService {
                     throw new RuntimeException("No such Device!");
                 }
             }catch (Exception e){
-                throw new RuntimeException("Device error:"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("BlueToothID cannot be null!");
@@ -149,7 +149,7 @@ public class DataServiceImp implements DataService {
                     throw new RuntimeException("No such Device!");
                 }
             }catch (Exception e){
-                throw new RuntimeException("Device error:"+e.getMessage());
+                throw new RuntimeException("Device error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("Device name cannot be null!");
@@ -168,7 +168,7 @@ public class DataServiceImp implements DataService {
                     throw new RuntimeException("Add user failed!");
                 }
             }catch (Exception e){
-                throw new RuntimeException("Add user error:"+e.getMessage());
+                throw new RuntimeException("Add user error: "+e.getMessage());
             }
         }else {
             throw new RuntimeException("User Name cannot be null!");
@@ -188,7 +188,7 @@ public class DataServiceImp implements DataService {
                 else
                     throw new RuntimeException("Wrong password!");
             }catch (Exception e){
-                throw new RuntimeException("Login error:"+e.getMessage());
+                throw new RuntimeException("Login error: "+e.getMessage());
             }
         }
         return  true;
